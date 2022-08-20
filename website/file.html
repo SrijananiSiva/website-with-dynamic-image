@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <meta name="viewport" content="device-width, initial-scale=1.0">
+        <title>webpage using diyamic images</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="hero">
+            <div class="navbar">
+                <img src="images/logo.png" class="logo">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">popular places</a></li>
+                    <li><a href="#">Beaches</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    
+                </ul>
+                <div class="user">
+                    
+                    <button type="button">Explore</button>
+                    <img src="images/user.png">
+                </div>
+            </div>
+            <div class="container">
+                <div class="info">
+                    <h1>DISCOVER</h1>
+                    <p>“There is no discovery without risk an what you risk reveals what you value.” Jeanette Winterson</p>
+                    <form action="https://www.google.com/search" method="get" >
+                    <input type="text" placeholder="search Locations" name="q">
+                    <button type="submit" >Go</button>
+                    </form>
+                </div>
+            </div>
+            <div class="slider">
+                <img src="images/left-arrow.png" id="prev">
+                <div class="preview">
+                    <img src="images/small1.png" class="active thumbnail">
+                    <img src="images/small2.png" class="thumbnail">
+                    <img src="images/small3.png" class="thumbnail">
+                    <img src="images/small4.png" class="thumbnail">
+                </div>
+                <img src="images/right-arrow.png" id="next">
+            </div>
+            
+
+        </div>
+        <script>
+            var prev = document.getElementById("prev");
+            var next = document.getElementById("next");
+            var thumbnail = document.getElementsByClassName("thumbnail");
+            var hero = document.getElementById("hero");
+
+            var backgroundImg = new Array(
+                "images/bg1.png",
+                "images/bg2.png",
+                "images/bg3.png",
+                "images/bg4.png",
+                "images/bg5.png",
+                );
+            let i = 0;
+            next.onclick = function(){
+
+                if(i < 4){
+                hero.style.backgroundImage = 'url("'+backgroundImg[i+1]+'")';
+                thumbnail[i+1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i++;
+            }
+            }
+            prev.onclick = function(){
+
+                if(i > 0){
+                hero.style.backgroundImage = 'url("'+backgroundImg[i-1]+'")';
+                thumbnail[i-1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i--;
+            }
+
+            }
+
+        </script>
+    </body>
+</html>
